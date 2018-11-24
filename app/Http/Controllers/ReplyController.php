@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Reply;
 use Illuminate\Http\Request;
+use App\Contracts\ReplyContract;
 
 class ReplyController extends Controller
 {
+    protected $replyContractRetriever;
+
+    public function __construct(ReplyContract $replyContract)
+    {
+        $this->replyContractRetriever = $replyContract;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,7 @@ class ReplyController extends Controller
      */
     public function index()
     {
-        //
+        return $this->replyContractRetriever->index();
     }
 
     /**
@@ -24,7 +32,7 @@ class ReplyController extends Controller
      */
     public function create()
     {
-        //
+        return $this->replyContractRetriever->create();
     }
 
     /**
@@ -35,7 +43,7 @@ class ReplyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->replyContractRetriever->store($request);
     }
 
     /**
@@ -46,7 +54,7 @@ class ReplyController extends Controller
      */
     public function show(Reply $reply)
     {
-        //
+        return $this->replyContractRetriever->show($reply);
     }
 
     /**
@@ -57,7 +65,7 @@ class ReplyController extends Controller
      */
     public function edit(Reply $reply)
     {
-        //
+        return $this->replyContractRetriever->edit($reply);
     }
 
     /**
@@ -69,7 +77,7 @@ class ReplyController extends Controller
      */
     public function update(Request $request, Reply $reply)
     {
-        //
+        return $this->replyContractRetriever->update($request, $reply);
     }
 
     /**
@@ -80,6 +88,6 @@ class ReplyController extends Controller
      */
     public function destroy(Reply $reply)
     {
-        //
+        return $this->replyContractRetriever->destroy($reply);
     }
 }

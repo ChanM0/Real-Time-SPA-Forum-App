@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Like;
 use Illuminate\Http\Request;
+use App\Contracts\LikeContract;
 
 class LikeController extends Controller
 {
+    protected $likeContractRetriever;
+
+    public function __construct(LikeContract $likeContract)
+    {
+        $this->likeContractRetriever = $likeContract;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,7 @@ class LikeController extends Controller
      */
     public function index()
     {
-        //
+        return $this->likeContractRetriever->index();
     }
 
     /**
@@ -24,7 +32,7 @@ class LikeController extends Controller
      */
     public function create()
     {
-        //
+        return $this->likeContractRetriever->create();
     }
 
     /**
@@ -35,7 +43,7 @@ class LikeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->likeContractRetriever->store($request);
     }
 
     /**
@@ -46,7 +54,7 @@ class LikeController extends Controller
      */
     public function show(Like $like)
     {
-        //
+        return $this->likeContractRetriever->show($like);
     }
 
     /**
@@ -57,7 +65,7 @@ class LikeController extends Controller
      */
     public function edit(Like $like)
     {
-        //
+        return $this->likeContractRetriever->edit($like);
     }
 
     /**
@@ -69,7 +77,7 @@ class LikeController extends Controller
      */
     public function update(Request $request, Like $like)
     {
-        //
+        return $this->likeContractRetriever->update($request, $like);
     }
 
     /**
@@ -80,6 +88,6 @@ class LikeController extends Controller
      */
     public function destroy(Like $like)
     {
-        //
+        return $this->likeContractRetriever->destroy($like);
     }
 }

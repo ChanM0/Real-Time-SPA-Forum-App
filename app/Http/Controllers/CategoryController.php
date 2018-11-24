@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Contracts\CategoryContract;
 
 class CategoryController extends Controller
 {
+    protected $categoryContractRetriever;
+
+    public function __construct(CategoryContract $categoryContract)
+    {
+        $this->categoryContractRetriever = $categoryContract;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return $this->categoryContractRetriever->index();
     }
 
     /**
@@ -24,7 +32,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return $this->categoryContractRetriever->create();
     }
 
     /**
@@ -35,7 +43,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->categoryContractRetriever->store($request);
     }
 
     /**
@@ -46,7 +54,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return $this->categoryContractRetriever->show($category);
     }
 
     /**
@@ -57,7 +65,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return $this->categoryContractRetriever->edit($category);
     }
 
     /**
@@ -69,7 +77,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        return $this->categoryContractRetriever->update($request, $category);
     }
 
     /**
@@ -80,6 +88,6 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        return $this->categoryContractRetriever->destroy($category);
     }
 }
