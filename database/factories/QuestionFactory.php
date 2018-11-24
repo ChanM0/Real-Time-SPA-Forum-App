@@ -4,8 +4,9 @@ use Faker\Generator as Faker;
 
 use App\User;
 use App\Models\Category;
+use App\Models\Question;
 
-$factory->define(App\Models\Question::class, function (Faker $faker) {
+$factory->define(Question::class, function (Faker $faker) {
     $title = $faker->sentence;
     return [
         'title' => $title,
