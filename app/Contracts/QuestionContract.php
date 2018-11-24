@@ -13,12 +13,6 @@ interface QuestionContract
    */
   public function index();
 
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create();
 
   /**
    * Store a newly created resource in storage.
@@ -35,14 +29,6 @@ interface QuestionContract
    * @return \Illuminate\Http\Response
    */
   public function show(Question $question);
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  \App\Models\Question  $question
-   * @return \Illuminate\Http\Response
-   */
-  public function edit(Question $question);
 
   /**
    * Update the specified resource in storage.
