@@ -60,3 +60,16 @@
         - User.php
 
 ---
+
+# BE - Laravel : 04-Factory-Seeding
+
+## Add Factories to
+
+    -   question
+    -   reply
+    -   like
+    -   categories
+
+## Seeding
+
+---
