@@ -163,6 +163,9 @@ return [
 
         /** New service providers for the contract service flow  */
         App\Providers\QuestionServiceProvider::class,
+        App\Providers\CategoryServiceProvider::class,
+        App\Providers\LikeServiceProvider::class,
+        App\Providers\ReplyServiceProvider::class,
 
     ],
 
