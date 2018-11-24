@@ -72,4 +72,6 @@
 
 ## Seeding
 
+    - DatabaseSeeder.php
+
 ---
