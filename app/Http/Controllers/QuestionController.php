@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use Illuminate\Http\Request;
-
 use App\Contracts\QuestionContract;
 
 class QuestionController extends Controller

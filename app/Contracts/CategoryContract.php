@@ -1,6 +1,7 @@
 <?php 
 namespace App\Contracts;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 interface CategoryContract

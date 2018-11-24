@@ -1,6 +1,7 @@
 <?php 
 namespace App\Contracts;
 
+use App\Models\Reply;
 use Illuminate\Http\Request;
 
 interface ReplyContract
