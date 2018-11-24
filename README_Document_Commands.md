@@ -39,3 +39,24 @@
     - ``` php artisan make:provider LikeServiceProvider```
         - makes a service provider, implemented contract service flow
             - made a contract, service, and connected them in config/app.php
+
+---
+
+# BE - Laravel : 02-Relationships
+
+## Make relationships
+
+-   we need to make relationships for
+    -   question
+    -   reply
+    -   like
+
+### Edit files
+
+    - App/Models
+        - Question.php
+        - Reply.php
+    - App
+        - User.php
+
+---
