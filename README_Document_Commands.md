@@ -10,7 +10,7 @@
 
 -   we need to make migrations for
     -   questions
-    -   replys
+    -   replies
     -   categories
     -   likes
 
@@ -58,5 +58,21 @@
         - Reply.php
     - App
         - User.php
+
+---
+
+# BE - Laravel : 03-Routes
+
+## Make Routes - Question
+
+### Commands
+
+    - ```php artisan route:list```
+
+---
+
+# BE - Laravel : 04-Factories
+
+## Make Factories
 
 ---
