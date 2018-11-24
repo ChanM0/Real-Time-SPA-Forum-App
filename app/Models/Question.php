@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
+    protected $fillable = ['title', 'slug', 'body', 'category_id', 'user_id'];
+
+    /** Do this to ignore the mass assignments */
+    protected $guarded = [];
+
     /**
      * Get the route key for the model.
      *

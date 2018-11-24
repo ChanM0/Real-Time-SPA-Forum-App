@@ -27,7 +27,13 @@ class QuestionService implements QuestionContract
      */
     public function store(Request $request)
     {
-        //
+        //Save for later when JWT is implemented 
+        // auth()->user()->question()->create($request->all());
+
+        Question::create($request->all());
+        
+        // return response('Created', 201);
+        return response(null, Response::HTTP_CREATED);
     }
 
     /**
@@ -62,6 +68,7 @@ class QuestionService implements QuestionContract
     public function destroy(Question $question)
     {
         $question->delete();
+       
         // return response('Deleted', Response::HTTP_NO_CONTENT);
         return response(null, Response::HTTP_NO_CONTENT);
     }
