@@ -46,7 +46,7 @@ class CategoryService implements CategoryContract
      */
     public function show(Category $category)
     {
-        //
+        return $category;
     }
 
     /**
@@ -58,7 +58,15 @@ class CategoryService implements CategoryContract
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category->update(
+            [
+                'name' => $request->name,
+                'slug' => str_slug($request->name)
+            ]
+        );
+
+        // return response('Updated', 202);
+        return response(null, Response::HTTP_ACCEPTED);
     }
 
     /**
@@ -69,6 +77,9 @@ class CategoryService implements CategoryContract
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+       
+        // return response('Deleted', Response::HTTP_NO_CONTENT);
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }
