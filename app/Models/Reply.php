@@ -9,6 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reply extends Model
 {
+    // protected $fillable = ['body',];
+
+    /** Do this to ignore the mass assignments */
+    protected $guarded = [];
+
     public function question()
     {
         return $this->belongsTo(Question::class);

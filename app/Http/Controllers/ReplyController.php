@@ -32,9 +32,9 @@ class ReplyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Question $question, Request $request)
     {
-        return $this->replyContractRetriever->store($request);
+        return $this->replyContractRetriever->store($question, $request);
     }
 
     /**
@@ -66,8 +66,8 @@ class ReplyController extends Controller
      * @param  \App\Models\Reply  $reply
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reply $reply)
+    public function destroy(Question $question, Reply $reply)
     {
-        return $this->replyContractRetriever->destroy($reply);
+        return $this->replyContractRetriever->destroy($question, $reply);
     }
 }

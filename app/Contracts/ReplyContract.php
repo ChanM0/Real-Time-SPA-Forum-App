@@ -20,7 +20,7 @@ interface ReplyContract
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request);
+  public function store(Question $question, Request $request);
 
   /**
    * Display the specified resource.
@@ -45,5 +45,5 @@ interface ReplyContract
    * @param  \App\Models\Reply  $reply
    * @return \Illuminate\Http\Response
    */
-  public function destroy(Reply $reply);
+  public function destroy(Question $question, Reply $reply);
 }
