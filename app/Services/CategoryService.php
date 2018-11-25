@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 // use Illuminate\Support\Facades\Auth;
 use App\Models\Category;
 use App\Contracts\CategoryContract;
+use App\Http\Resources\CategoryResource;
 
 class CategoryService implements CategoryContract
 {
@@ -16,8 +17,7 @@ class CategoryService implements CategoryContract
      */
     public function index()
     {
-        // return CategoryResource::collection(Category::latest()->get());
-        return Category::latest()->get();
+        return CategoryResource::collection(Category::latest()->get());
     }
 
     /**
@@ -46,7 +46,7 @@ class CategoryService implements CategoryContract
      */
     public function show(Category $category)
     {
-        return $category;
+        return new CategoryResource($category);
     }
 
     /**

@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Contracts\ReplyContract;
 use App\Models\Reply;
 use App\Models\Question;
+use App\Http\Resources\ReplyResource;
 
 class ReplyService implements ReplyContract
 {
@@ -17,7 +18,7 @@ class ReplyService implements ReplyContract
      */
     public function index(Question $question)
     {
-        return $question->replies;
+        return ReplyResource::collection($question->replies);
     }
 
     /**
@@ -30,7 +31,7 @@ class ReplyService implements ReplyContract
     {
         $reply = $question->replies()->create($request->all());
         // return response('Created', 201);
-        return response(['reply' => $reply], Response::HTTP_CREATED);
+        return response(['reply' => new ReplyResource($reply)], Response::HTTP_CREATED);
     }
 
     /**
@@ -41,7 +42,7 @@ class ReplyService implements ReplyContract
      */
     public function show(Question $question, Reply $reply)
     {
-        return $reply;
+        return new ReplyResource($reply);
     }
 
     /**

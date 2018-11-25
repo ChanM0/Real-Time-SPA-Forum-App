@@ -88,3 +88,16 @@
     - ```php artisan make:resource QuestionResource ```
 
 ---
+
+# BE - Laravel : 07-CRUD-Reply
+
+## Make CRUD - Question
+
+## Resource Question implementation
+
+#### Commands
+
+    - ```php artisan make:resource CategoryResource ```
+    - ```php artisan make:resource ReplyResource ```
+
+---
