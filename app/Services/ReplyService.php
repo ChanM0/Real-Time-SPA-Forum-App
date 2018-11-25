@@ -3,8 +3,9 @@ namespace App\Services;
 
 use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Auth;
-use App\Models\Reply;
 use App\Contracts\ReplyContract;
+use App\Models\Reply;
+use App\Models\Question;
 
 class ReplyService implements ReplyContract
 {
@@ -13,9 +14,9 @@ class ReplyService implements ReplyContract
        *
        * @return \Illuminate\Http\Response
        */
-      public function index()
+      public function index(Question $question)
       {
-        //
+            return $question->replies;
       }
 
       /**

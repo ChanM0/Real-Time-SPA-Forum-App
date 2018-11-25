@@ -1,8 +1,9 @@
 <?php 
 namespace App\Contracts;
 
-use App\Models\Reply;
 use Illuminate\Http\Request;
+use App\Models\Reply;
+use App\Models\Question;
 
 interface ReplyContract
 {
@@ -11,7 +12,7 @@ interface ReplyContract
    *
    * @return \Illuminate\Http\Response
    */
-  public function index();
+  public function index(Question $question);
 
   /**
    * Store a newly created resource in storage.

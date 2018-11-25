@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reply;
-use Illuminate\Http\Request;
 use App\Contracts\ReplyContract;
+use Illuminate\Http\Request;
+use App\Models\Reply;
+use App\Models\Question;
 
 class ReplyController extends Controller
 {
@@ -20,9 +21,9 @@ class ReplyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Question $question)
     {
-        return $this->replyContractRetriever->index();
+        return $this->replyContractRetriever->index($question);
     }
 
     /**
