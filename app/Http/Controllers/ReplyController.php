@@ -55,9 +55,9 @@ class ReplyController extends Controller
      * @param  \App\Models\Reply  $reply
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reply $reply)
+    public function update(Question $question, Request $request, Reply $reply)
     {
-        return $this->replyContractRetriever->update($request, $reply);
+        return $this->replyContractRetriever->update($question, $request, $reply);
     }
 
     /**

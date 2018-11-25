@@ -52,9 +52,12 @@ class ReplyService implements ReplyContract
      * @param  \App\Models\Reply  $reply
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reply $reply)
+    public function update(Question $question, Request $request, Reply $reply)
     {
-        //
+        // dd($request);
+        $reply->update($request->all());
+        // return response('Updated', 202);
+        return response('updated', Response::HTTP_ACCEPTED);
     }
 
     /**
