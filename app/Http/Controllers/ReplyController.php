@@ -43,9 +43,9 @@ class ReplyController extends Controller
      * @param  \App\Models\Reply  $reply
      * @return \Illuminate\Http\Response
      */
-    public function show(Reply $reply)
+    public function show(Question $question, Reply $reply)
     {
-        return $this->replyContractRetriever->show($reply);
+        return $this->replyContractRetriever->show($question, $reply);
     }
 
     /**

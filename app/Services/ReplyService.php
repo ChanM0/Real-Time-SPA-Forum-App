@@ -36,9 +36,9 @@ class ReplyService implements ReplyContract
        * @param  \App\Models\Reply  $reply
        * @return \Illuminate\Http\Response
        */
-      public function show(Reply $reply)
+      public function show(Question $question, Reply $reply)
       {
-        //
+            return $reply;
       }
 
       /**
