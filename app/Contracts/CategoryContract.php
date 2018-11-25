@@ -14,13 +14,6 @@ interface CategoryContract
   public function index();
 
   /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function create();
-
-  /**
    * Store a newly created resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -35,14 +28,6 @@ interface CategoryContract
    * @return \Illuminate\Http\Response
    */
   public function show(Category $category);
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  \App\Models\Category  $category
-   * @return \Illuminate\Http\Response
-   */
-  public function edit(Category $category);
 
   /**
    * Update the specified resource in storage.

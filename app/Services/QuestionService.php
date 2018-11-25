@@ -2,10 +2,10 @@
 namespace App\Services;
 
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 // use Illuminate\Support\Facades\Auth;
 use App\Models\Question;
 use App\Contracts\QuestionContract;
-use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\QuestionResource;
 
 class QuestionService implements QuestionContract
