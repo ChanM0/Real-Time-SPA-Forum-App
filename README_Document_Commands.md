@@ -81,6 +81,10 @@
 
 ## Make CRUD - Question
 
-### Commands
+## Resource Question implementation
+
+#### Commands
+
+    - ```php artisan make:resource QuestionResource ```
 
 ---

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Contracts\QuestionContract;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Resources\QuestionResource;
 
 class QuestionService implements QuestionContract
 {
@@ -16,7 +17,10 @@ class QuestionService implements QuestionContract
      */
     public function index()
     {
-        return Question::latest()->get();
+        /**
+         * will the resource template on all entries
+         */
+        return QuestionResource::collection(Question::latest()->get());
     }
 
     /**
@@ -44,7 +48,7 @@ class QuestionService implements QuestionContract
      */
     public function show(Question $question)
     {
-        return $question;
+        return new QuestionResource($question);
     }
 
     /**
