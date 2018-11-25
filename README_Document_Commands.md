@@ -101,3 +101,18 @@
     - ```php artisan make:resource ReplyResource ```
 
 ---
+
+---
+
+# BE - Laravel : 09-set-up-jwt
+
+## Composer.json
+
+    - "tymon/jwt-auth": "1.0.0-rc.2"
+
+## Commands
+
+    - php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+    - php artisan jwt:secret
+
+---
