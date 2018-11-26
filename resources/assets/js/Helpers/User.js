@@ -13,9 +13,40 @@ class User {
     responseAfterLogin(res) {
         const access_token = res.data.access_token;
         const username = res.data.user;
-        console.log(username);
+        // console.log(username);
         if (Token.isValid(access_token)) {
             AppStorage.store(username, access_token);
+        }
+    }
+
+    hasToken() {
+        const storedToken = AppStorage.getToken();
+        // console.log(storedToken);
+        // console.log(storedToken);
+        if (storedToken) {
+            return Token.isValid(storedToken) ? true : false;
+        }
+        return false;
+    }
+
+    loggedin() {
+        return this.hasToken();
+    }
+
+    logout() {
+        AppStorage.clear();
+    }
+
+    name() {
+        if (this.loggedin()) {
+            return AppStorage.getUser();
+        }
+    }
+
+    id() {
+        if (this.loggedin()) {
+            const payload = Token.payload(AppStorage.getToken());
+            return payload.sub;
         }
     }
 }
