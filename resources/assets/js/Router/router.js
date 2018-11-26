@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 
 /** Import routes */
 import Login from "../components/Login/Login";
+import SignUp from "../components/Login/SignUp";
 
 var local = "/Forum-App/public/";
 
@@ -12,6 +13,10 @@ const routes = [
     {
         path: "/login",
         component: Login
+    },
+    {
+        path: "/signup",
+        component: SignUp
     }
 ];
 
