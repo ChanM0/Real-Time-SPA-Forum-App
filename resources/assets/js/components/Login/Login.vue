@@ -49,6 +49,11 @@ export default {
 			}
 		};
 	},
+	created() {
+		if (User.loggedin()) {
+			this.$router.push({ name: "home" });
+		}
+	},
 	methods: {
 		login() {
 			User.login(this.form);

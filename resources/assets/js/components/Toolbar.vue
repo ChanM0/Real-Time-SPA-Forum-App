@@ -5,24 +5,13 @@
             <v-spacer></v-spacer>
             <div class="hidden-sm-and-down">
             
-                <router-link to="/forum">
-                    <v-btn flat>Forum</v-btn>
-                </router-link>
-
-                <router-link to="/question">
-                    <v-btn flat>Ask Question</v-btn>
-                </router-link>
-
-                <router-link to="/categories">
-                    <v-btn flat>Categories</v-btn>
-                </router-link>
-                
-                <router-link to="/login">
-                    <v-btn flat>Login</v-btn>
-                </router-link>
-
-                <router-link to="/signup">
-                    <v-btn flat>Sign Up</v-btn>
+                <router-link 
+                v-for="item in items"
+                :key="item.title"
+                :to="item.to"
+                v-if="item.show"
+                >
+                    <v-btn flat>{{item.title}}</v-btn>
                 </router-link>
             
             
@@ -31,7 +20,44 @@
 </template>
 
 <script>
-export default {};
+export default {
+	data() {
+		return {
+			items: [
+				{
+					title: "Forum",
+					to: "/forum",
+					show: true
+				},
+				{
+					title: "Ask Question",
+					to: "/ask",
+					show: User.loggedin()
+				},
+				{
+					title: "Category",
+					to: "/category",
+					show: User.loggedin()
+				},
+				{
+					title: "Sign up",
+					to: "/signup",
+					show: !User.loggedin()
+				},
+				{
+					title: "Login",
+					to: "/login",
+					show: !User.loggedin()
+				},
+				{
+					title: "Logout",
+					to: "/logout",
+					show: User.loggedin()
+				}
+			]
+		};
+	}
+};
 </script>
 
 <style>

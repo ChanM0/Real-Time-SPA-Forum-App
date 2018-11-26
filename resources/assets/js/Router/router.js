@@ -7,6 +7,7 @@ Vue.use(VueRouter);
 import Login from "../components/Login/Login";
 import SignUp from "../components/Login/SignUp";
 import Forum from "../components/Forum/Forum.vue";
+import AppHome from "../components/AppHome.vue";
 
 var local = "/Forum-App/public/";
 
@@ -25,6 +26,11 @@ const routes = [
         path: "/forum",
         component: Forum,
         name: "forum"
+    },
+    {
+        path: "/",
+        // component: AppHome,
+        name: "home"
     }
 ];
 

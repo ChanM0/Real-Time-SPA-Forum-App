@@ -68,9 +68,14 @@ export default {
 			errors: {}
 		};
 	},
+	created() {
+		if (User.loggedin()) {
+			this.$router.push({ name: "home" });
+		}
+	},
 	methods: {
 		signup() {
-			var path = "http://localhost:8888/Forum-App/public/";
+			var path = "http://localhost:8000/";
 			path += "api/auth/signup";
 			axios
 				.post(path, this.form)

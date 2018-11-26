@@ -3,7 +3,7 @@ import AppStorage from "./AppStorage";
 
 class User {
     login(data) {
-        var path = "http://localhost:8888/Forum-App/public/";
+        var path = "http://localhost:8000/";
         path += "api/auth/login";
         axios
             .post(path, data)

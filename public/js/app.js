@@ -70489,7 +70489,7 @@ var User = function () {
         value: function login(data) {
             var _this = this;
 
-            var path = "http://localhost:8888/Forum-App/public/";
+            var path = "http://localhost:8000/";
             path += "api/auth/login";
             axios.post(path, data).then(function (res) {
                 return _this.responseAfterLogin(res);
@@ -70567,8 +70567,8 @@ var Token = function () {
         value: function isValid(token) {
             var payload = this.payload(token);
 
-            var api_auth_login = "http://localhost:8888/Forum-App/public/api/auth/login";
-            var api_auth_signup = "http://localhost:8888/Forum-App/public/api/auth/signup";
+            var api_auth_login = "http://localhost:8000/api/auth/login";
+            var api_auth_signup = "http://localhost:8000/api/auth/signup";
 
             if (payload) {
                 var login = payload.iss == api_auth_signup;
@@ -70890,7 +70890,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -70922,19 +70922,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony default export */ __webpack_exports__["default"] = ({
+	data: function data() {
+		return {
+			items: [{
+				title: "Forum",
+				to: "/forum",
+				show: true
+			}, {
+				title: "Ask Question",
+				to: "/ask",
+				show: User.loggedin()
+			}, {
+				title: "Category",
+				to: "/category",
+				show: User.loggedin()
+			}, {
+				title: "Sign up",
+				to: "/signup",
+				show: !User.loggedin()
+			}, {
+				title: "Login",
+				to: "/login",
+				show: !User.loggedin()
+			}, {
+				title: "Logout",
+				to: "/logout",
+				show: User.loggedin()
+			}]
+		};
+	}
+});
 
 /***/ }),
 /* 55 */
@@ -70954,43 +70973,20 @@ var render = function() {
       _c(
         "div",
         { staticClass: "hidden-sm-and-down" },
-        [
-          _c(
-            "router-link",
-            { attrs: { to: "/forum" } },
-            [_c("v-btn", { attrs: { flat: "" } }, [_vm._v("Forum")])],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            { attrs: { to: "/question" } },
-            [_c("v-btn", { attrs: { flat: "" } }, [_vm._v("Ask Question")])],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            { attrs: { to: "/categories" } },
-            [_c("v-btn", { attrs: { flat: "" } }, [_vm._v("Categories")])],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            { attrs: { to: "/login" } },
-            [_c("v-btn", { attrs: { flat: "" } }, [_vm._v("Login")])],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            { attrs: { to: "/signup" } },
-            [_c("v-btn", { attrs: { flat: "" } }, [_vm._v("Sign Up")])],
-            1
-          )
-        ],
-        1
+        _vm._l(_vm.items, function(item) {
+          return item.show
+            ? _c(
+                "router-link",
+                { key: item.title, attrs: { to: item.to } },
+                [
+                  _c("v-btn", { attrs: { flat: "" } }, [
+                    _vm._v(_vm._s(item.title))
+                  ])
+                ],
+                1
+              )
+            : _vm._e()
+        })
       )
     ],
     1
@@ -71188,12 +71184,15 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Login_SignUp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Login_SignUp__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Forum_Forum_vue__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_Forum_Forum_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_Forum_Forum_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_AppHome_vue__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_AppHome_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_AppHome_vue__);
 
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 
 /** Import routes */
+
 
 
 
@@ -71212,6 +71211,10 @@ var routes = [{
     path: "/forum",
     component: __WEBPACK_IMPORTED_MODULE_4__components_Forum_Forum_vue___default.a,
     name: "forum"
+}, {
+    path: "/",
+    // component: AppHome,
+    name: "home"
 }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
@@ -73933,7 +73936,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -73996,6 +73999,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				password: null
 			}
 		};
+	},
+	created: function created() {
+		if (User.loggedin()) {
+			this.$router.push({ name: "home" });
+		}
 	},
 
 	methods: {
@@ -74167,7 +74175,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -74248,12 +74256,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			errors: {}
 		};
 	},
+	created: function created() {
+		if (User.loggedin()) {
+			this.$router.push({ name: "home" });
+		}
+	},
 
 	methods: {
 		signup: function signup() {
 			var _this = this;
 
-			var path = "http://localhost:8888/Forum-App/public/";
+			var path = "http://localhost:8000/";
 			path += "api/auth/signup";
 			axios.post(path, this.form).then(function (res) {
 				User.responseAfterLogin(res);
