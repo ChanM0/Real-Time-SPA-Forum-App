@@ -127,3 +127,13 @@
     - php artisan make:middleware JWT
 
 ---
+
+# FE - VUE : 11-Vuetify-and-Components
+
+## Commands
+
+    - npm install vuetify --save
+    - npm install
+    - npm run watch
+
+---
