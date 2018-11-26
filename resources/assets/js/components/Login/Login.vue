@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     login() {
-      User.login($this.form);
+      User.login(this.form);
     }
   }
 };
