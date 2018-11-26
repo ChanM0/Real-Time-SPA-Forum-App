@@ -40,12 +40,7 @@ export default {
   },
   methods: {
     login() {
-      let path = "http://localhost:8888/Forum-App/public/";
-      path += "api/auth/login";
-      axios
-        .post(path, this.form)
-        .then(res => console.log(res.data))
-        .catch(error => console.log(error.response.data));
+      User.login($this.form);
     }
   }
 };

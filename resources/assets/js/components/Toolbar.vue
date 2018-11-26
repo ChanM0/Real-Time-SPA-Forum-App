@@ -5,7 +5,7 @@
             <v-spacer></v-spacer>
             <div class="hidden-sm-and-down">
             
-                <router-link to="forum">
+                <router-link to="/forum">
                     <v-btn flat>Forum</v-btn>
                 </router-link>
 
