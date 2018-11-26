@@ -8,6 +8,7 @@ import Login from "../components/Login/Login";
 import SignUp from "../components/Login/SignUp";
 import Forum from "../components/Forum/Forum.vue";
 import AppHome from "../components/AppHome.vue";
+import Logout from "../components/Login/Logout.vue";
 
 var local = "/Forum-App/public/";
 
@@ -31,6 +32,11 @@ const routes = [
         path: "/",
         // component: AppHome,
         name: "home"
+    },
+    {
+        path: "/logout",
+        component: Logout,
+        name: "logout"
     }
 ];
 
