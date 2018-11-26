@@ -137,3 +137,13 @@
     - npm run watch
 
 ---
+
+# FE - VUE : 11-vue-router
+
+## Commands
+
+    - npm install vue-router --save
+    - npm install
+    - npm run watch
+
+---
