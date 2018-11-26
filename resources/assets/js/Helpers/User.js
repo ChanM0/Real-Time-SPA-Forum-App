@@ -13,7 +13,7 @@ class User {
     responseAfterLogin(res) {
         const access_token = res.data.access_token;
         const username = res.data.user;
-        // console.log(username);
+
         if (Token.isValid(access_token)) {
             AppStorage.store(username, access_token);
         }
@@ -21,8 +21,6 @@ class User {
 
     hasToken() {
         const storedToken = AppStorage.getToken();
-        // console.log(storedToken);
-        // console.log(storedToken);
         if (storedToken) {
             return Token.isValid(storedToken) ? true : false;
         }

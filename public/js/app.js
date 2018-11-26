@@ -25305,8 +25305,6 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuet
 
 window.User = __WEBPACK_IMPORTED_MODULE_2__Helpers_User__["a" /* default */];
 
-console.log(__WEBPACK_IMPORTED_MODULE_2__Helpers_User__["a" /* default */].loggedin());
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -70504,7 +70502,7 @@ var User = function () {
         value: function responseAfterLogin(res) {
             var access_token = res.data.access_token;
             var username = res.data.user;
-            // console.log(username);
+
             if (__WEBPACK_IMPORTED_MODULE_0__Token__["a" /* default */].isValid(access_token)) {
                 __WEBPACK_IMPORTED_MODULE_1__AppStorage__["a" /* default */].store(username, access_token);
             }
@@ -70513,8 +70511,6 @@ var User = function () {
         key: "hasToken",
         value: function hasToken() {
             var storedToken = __WEBPACK_IMPORTED_MODULE_1__AppStorage__["a" /* default */].getToken();
-            // console.log(storedToken);
-            // console.log(storedToken);
             if (storedToken) {
                 return __WEBPACK_IMPORTED_MODULE_0__Token__["a" /* default */].isValid(storedToken) ? true : false;
             }
@@ -70628,8 +70624,6 @@ var AppStorage = function () {
     }, {
         key: "store",
         value: function store(user, token) {
-            console.log(user);
-            console.log(token);
             this.storeToken(token);
             this.storeUser(user);
         }
