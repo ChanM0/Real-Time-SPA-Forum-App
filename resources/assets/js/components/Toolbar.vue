@@ -1,15 +1,28 @@
 <template>
-  <v-toolbar>
-    <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
-    <v-toolbar-title>SPA-Forum</v-toolbar-title>
-    <v-spacer></v-spacer>
-    <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn flat>Forum</v-btn>
-      <v-btn flat>Ask Question</v-btn>
-      <v-btn flat>Categories</v-btn>
-      <v-btn flat>Login</v-btn>
-    </v-toolbar-items>
-  </v-toolbar>
+    <v-toolbar>
+        <!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
+        <v-toolbar-title>SPA-Forum</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <div class="hidden-sm-and-down">
+            
+                <router-link to="forum">
+                    <v-btn flat>Forum</v-btn>
+                </router-link>
+
+                <router-link to="/question">
+                    <v-btn flat>Ask Question</v-btn>
+                </router-link>
+
+                <router-link to="/categories">
+                    <v-btn flat>Categories</v-btn>
+                </router-link>
+                
+                <router-link to="/login">
+                    <v-btn flat>Login</v-btn>
+                </router-link>
+            
+            </div>
+        </v-toolbar>
 </template>
 
 <script>
