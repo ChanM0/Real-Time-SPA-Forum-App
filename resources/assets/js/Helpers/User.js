@@ -1,4 +1,5 @@
 import Token from "./Token";
+import AppStorage from "./AppStorage";
 
 class User {
     login(data) {
@@ -6,10 +7,16 @@ class User {
         path += "api/auth/login";
         axios
             .post(path, data)
-            .then(res => {
-                Token.payload(res.data.access_token);
-            })
+            .then(res => this.responseAfterLogin(res))
             .catch(error => console.log(error.response.data));
+    }
+    responseAfterLogin(res) {
+        const access_token = res.data.access_token;
+        const username = res.data.user;
+        console.log(username);
+        if (Token.isValid(access_token)) {
+            AppStorage.store(username, access_token);
+        }
     }
 }
 

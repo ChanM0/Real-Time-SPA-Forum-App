@@ -1,6 +1,7 @@
 class AppStorage {
-    storeToke(token) {
-        localStorage.setItem("token", token);
+    storeToken(token) {
+        var bool = localStorage.setItem("token", token);
+        console.log("hello there");
     }
 
     storeUser(user) {
@@ -8,7 +9,7 @@ class AppStorage {
     }
 
     store(user, token) {
-        this.storeUser(token);
+        this.storeToken(token);
         this.storeUser(user);
     }
 

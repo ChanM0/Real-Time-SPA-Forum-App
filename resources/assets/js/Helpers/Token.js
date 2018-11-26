@@ -1,7 +1,6 @@
 class Token {
     isValid(token) {
         const payload = this.payload(token);
-        console.log(payload);
 
         const server = "http://localhost:8888/Forum-App/public/api/auth/login";
         if (payload) {
