@@ -12,6 +12,7 @@ class LikeController extends Controller
 
     public function __construct(LikeContract $likeContract)
     {
+        $this->middleware('JWT');
         $this->likeContractRetriever = $likeContract;
     }
 

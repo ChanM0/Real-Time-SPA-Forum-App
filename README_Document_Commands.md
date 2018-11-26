@@ -119,3 +119,11 @@
     - php artisan make:controller AuthController
 
 ---
+
+# BE - Laravel : 10-JWT-middle-ware
+
+## Commands
+
+    - php artisan make:middleware JWT
+
+---

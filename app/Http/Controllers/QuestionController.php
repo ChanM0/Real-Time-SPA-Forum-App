@@ -12,6 +12,7 @@ class QuestionController extends Controller
 
     public function __construct(QuestionContract $questionContract)
     {
+        $this->middleware('JWT', ['except' => ['index', 'show']]);
         $this->questionContractRetriever = $questionContract;
     }
 

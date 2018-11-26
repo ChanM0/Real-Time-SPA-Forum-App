@@ -13,6 +13,7 @@ class ReplyController extends Controller
 
     public function __construct(ReplyContract $replyContract)
     {
+        $this->middleware('JWT', ['except' => ['index', 'show']]);
         $this->replyContractRetriever = $replyContract;
     }
 
