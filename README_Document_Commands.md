@@ -138,6 +138,16 @@
 
 ---
 
+# FE - VUE : 14-Authentication-signup-logout
+
+## Commands
+
+    - php artisan make:request SignUpRequest
+    - npm install
+    - npm run watch
+
+---
+
 # FE - VUE : 11-vue-router
 
 ## Commands
