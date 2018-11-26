@@ -73715,7 +73715,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -73726,6 +73726,8 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 //
 //
 //
@@ -73755,6 +73757,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -73763,6 +73767,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         password: null
       }
     };
+  },
+
+  methods: {
+    login: function login() {
+      var path = "http://localhost:8888/Forum-App/public/";
+      path += "api/auth/login";
+      __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(path, this.form).then(function (res) {
+        return console.log(res.data);
+      }).catch(function (error) {
+        return console.log(error.response.data);
+      });
+    }
   }
 });
 
@@ -73780,12 +73796,11 @@ var render = function() {
       _c(
         "v-form",
         {
-          model: {
-            value: _vm.valid,
-            callback: function($$v) {
-              _vm.valid = $$v
-            },
-            expression: "valid"
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.login($event)
+            }
           }
         },
         [
@@ -73801,7 +73816,7 @@ var render = function() {
           }),
           _vm._v(" "),
           _c("v-text-field", {
-            attrs: { label: "Password", type: "password ", required: "" },
+            attrs: { label: "Password", type: "password", required: "" },
             model: {
               value: _vm.form.password,
               callback: function($$v) {

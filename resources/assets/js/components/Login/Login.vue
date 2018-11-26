@@ -1,6 +1,6 @@
 <template>
     <v-container>
-         <v-form v-model="valid">
+         <v-form @submit.prevent="login">
 
             <v-text-field
             v-model="form.email"
@@ -12,7 +12,7 @@
             <v-text-field
             v-model="form.password"
             label="Password"
-            type="password "
+            type="password"
             required
             ></v-text-field>
 
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
@@ -35,6 +37,16 @@ export default {
         password: null
       }
     };
+  },
+  methods: {
+    login() {
+      let path = "http://localhost:8888/Forum-App/public/";
+      path += "api/auth/login";
+      axios
+        .post(path, this.form)
+        .then(res => console.log(res.data))
+        .catch(error => console.log(error.response.data));
+    }
   }
 };
 </script>
