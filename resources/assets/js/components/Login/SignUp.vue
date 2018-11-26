@@ -74,7 +74,10 @@ export default {
 			path += "api/auth/signup";
 			axios
 				.post(path, this.form)
-				.then(res => User.responseAfterLogin(res))
+				.then(res => {
+					User.responseAfterLogin(res);
+					this.$router.push({ name: "forum" });
+				})
 				.catch(error => {
 					console.log(error);
 					this.errors = error.response.data.errors;
