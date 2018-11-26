@@ -2,9 +2,16 @@ class Token {
     isValid(token) {
         const payload = this.payload(token);
 
-        const server = "http://localhost:8888/Forum-App/public/api/auth/login";
+        const api_auth_login =
+            "http://localhost:8888/Forum-App/public/api/auth/login";
+        const api_auth_signup =
+            "http://localhost:8888/Forum-App/public/api/auth/signup";
+
         if (payload) {
-            return payload.iss == server ? true : false;
+            var login = payload.iss == api_auth_signup;
+            var signup = payload.iss == api_auth_login;
+
+            return login || signup ? true : false;
         }
 
         return false;

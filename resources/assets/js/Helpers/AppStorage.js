@@ -8,6 +8,8 @@ class AppStorage {
     }
 
     store(user, token) {
+        console.log(user);
+        console.log(token);
         this.storeToken(token);
         this.storeUser(user);
     }

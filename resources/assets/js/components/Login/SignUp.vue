@@ -44,7 +44,7 @@
                 
                 <v-btn 
                 color="blue"
-                type="submit"
+                
                 >
                     login
                 </v-btn>
@@ -75,7 +75,10 @@ export default {
 			axios
 				.post(path, this.form)
 				.then(res => User.responseAfterLogin(res))
-				.catch(error => (this.errors = error.response.data.errors));
+				.catch(error => {
+					console.log(error);
+					this.errors = error.response.data.errors;
+				});
 			// .catch(error => console.log(error.response.data));
 		}
 	}
